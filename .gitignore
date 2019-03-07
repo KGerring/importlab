@@ -1,3 +1,6 @@
 *.pyc
 build/
 dist/
+
+# Ignore dynaconf secret files
+.secrets.*
