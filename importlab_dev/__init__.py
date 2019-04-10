@@ -22,12 +22,16 @@ def ensure_files(*files):
 
 
 def make_graph(*files):
-	args = Namespace(inputs=files, trim = True, python_version = "3.7",pythonpath= os.environ['PYTHONPATH'])
+	args = Namespace(inputs=files, trim = True, python_version = "3.7", pythonpath= os.environ['PYTHONPATH'])
 	source_files = utils.expand_source_files(args.inputs)
 	env = environment.create_from_args(args)
 	import_graph = graph.ImportGraph.create(env, args.inputs, args.trim)
 	return import_graph
 
+def main(*files):
+	igraph = make_graph(*files)
+	output.print_tree(igraph)
+	
 
 
 # i = utils.expand_source_files(args.inputs)

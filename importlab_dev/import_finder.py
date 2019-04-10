@@ -146,9 +146,16 @@ def read_imports(imports_str):
     """Print imports in csv format to stdout."""
     return json.loads(imports_str)
 
+import click
+@click.command()
+@click.option('-f', '--filename', type = click.Path(exists = True, dir_okay=False, resolve_path = True))
+def main(filename = __file__):
+	print_imports(filename)
+
 
 if __name__ == "__main__":
     # This is used to parse a file with a different python version, launching a
     # subprocess and communicating with it via reading stdout.
-    filename = sys.argv[1]
-    print_imports(filename)
+    #filename = sys.argv[1]
+    #print_imports(filename)
+    main()
