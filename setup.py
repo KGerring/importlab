@@ -8,13 +8,12 @@ from setuptools import find_packages, setup  # pytype: disable=import-error
 
 # Package meta-data.
 NAME = 'importlab'
-DESCRIPTION = 'A library to calculate python dependency graphs.'
-URL = 'https://github.com/google/importlab'
-EMAIL = 'pytype-dev@google.com'
-AUTHOR = 'Google Inc.'
+DESCRIPTION = 'COPY: A library to calculate python dependency graphs.'
+URL = 'https://github.com/KGerring/importlab'
+EMAIL = 'KGerring@gmail.com'
+AUTHOR = 'KGerring'
 REQUIRES_PYTHON = '>=2.7.0'
-VERSION = '0.5'
-
+VERSION = '0.6'
 REQUIRED = [
     'networkx',
     'six'
@@ -34,7 +33,7 @@ if not VERSION:
 else:
     about['__version__'] = VERSION
 
-PACKAGES = find_packages(exclude=('tests',))
+PACKAGES = find_packages(exclude=('tests','dev_data', 'testdata'))
 
 setup(
     name=NAME,
