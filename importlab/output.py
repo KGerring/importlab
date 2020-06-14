@@ -26,7 +26,6 @@ def inspect_graph(import_graph):
         for value in sorted(import_graph.broken_deps[key]):
             print('  %s -> <%s>' % (k, value))
 
-
 def format_file_node(import_graph, node, indent):
     """Prettyprint nodes based on their provenance."""
     f = import_graph.provenance[node]

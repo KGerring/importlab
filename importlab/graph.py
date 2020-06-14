@@ -28,7 +28,6 @@ class NodeSet(object):
 	def __iter__(self):
 		return self.nodes.__iter__()
 
-
 class DependencyGraph(object):
 	"""A set of file dependencies stored in a graph structure.
 

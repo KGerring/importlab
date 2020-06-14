@@ -18,11 +18,12 @@ import click
 
 def ensure_files(*files):
 	path = pathlib.Path(files[0] or '.')
+	return path
 
 
 def make_graph(*files):
 	args = Namespace(inputs=files, trim = True, python_version = "3.8", pythonpath= os.environ.get('PYTHONPATH', None))
-	source_files = utils.expand_source_files(args.inputs)
+	args.inputs = utils.expand_source_files(args.inputs)
 	env = environment.create_from_args(args)
 	import_graph = graph.ImportGraph.create(env, args.inputs, args.trim)
 	return import_graph
